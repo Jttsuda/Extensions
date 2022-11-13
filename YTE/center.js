@@ -1,4 +1,4 @@
-const re = /https:\/\/www.youtube.com\/results*/;
+const re = /https:\/\/www.youtube.com\/results/;
 
 function waitForElm(selector) {
     return new Promise(resolve => {
