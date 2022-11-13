@@ -1,5 +1,4 @@
-const re1 = /https:\/\/www.youtube.com*/;
-const re2 = /https:\/\/www.youtube.com\/results*/;
+const re = /https:\/\/www.youtube.com\/results*/;
 
 function waitForElm(selector) {
     return new Promise(resolve => {
@@ -22,14 +21,12 @@ function waitForElm(selector) {
 }
 
 function centerContent() {
-    if (re2.test(window.location.href)) {
+    if (re.test(window.location.href)) {
         waitForElm('ytd-search').then((elm) => {
             elm.style.marginLeft = '20%';
         });
     }
 }
 
-if (re1.test(window.location.href)) {
-    centerContent();
-    window.onclick = centerContent;
-}
+centerContent();
+window.onclick = centerContent;
