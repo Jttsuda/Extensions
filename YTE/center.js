@@ -23,10 +23,13 @@ function waitForElm(selector) {
 function centerContent() {
     if (re.test(window.location.href)) {
         waitForElm('ytd-search').then((elm) => {
-            elm.style.marginLeft = '20%';
+            const windowWidth = window.innerWidth;
+            if (windowWidth > 2500) {elm.style.marginLeft = '20%';}
+            else if (windowWidth > 1900) {elm.style.marginLeft = '10%';}
         });
     }
 }
 
-centerContent();
 window.onclick = centerContent;
+window.onresize = centerContent;
+centerContent();
